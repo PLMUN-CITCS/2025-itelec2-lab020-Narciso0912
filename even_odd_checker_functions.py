@@ -1,43 +1,35 @@
 def get_integer_input() -> int:
     """
-    This function prompts the user to enter an integer and returns the integer.
-    It ensures the input is valid by catching any ValueErrors if the user enters non-integer data.
+    Handles user input to obtain an integer.
+    Returns:
+        int: The integer entered by the user.
     """
     while True:
         try:
-            # Prompting the user to input an integer
-            user_input = input("Enter an integer: ")
-            # Converting input to integer
-            number = int(user_input)
+            number = int(input("Enter an integer: ").strip())
             return number
         except ValueError:
-            # Handling invalid input (non-integer)
             print("Invalid input. Please enter a valid integer.")
 
 def check_even_odd(number: int) -> str:
     """
-    This function checks if a number is even or odd.
-    It uses the modulo operator (%) to determine divisibility by 2.
-    
+    Determines if a given number is even or odd.
     Args:
-    - number: The integer to check
-    
+        number (int): The integer to check.
     Returns:
-    - A string message indicating whether the number is "Even" or "Odd"
+        str: A formatted string indicating if the number is even or odd.
     """
     if number % 2 == 0:
         return f"{number} is an Even number."
-    else:
-        return f"{number} is an Odd number."
+    return f"{number} is an Odd number."
 
-def main():
+def main() -> None:
     """
-    Main program function that handles the flow of the program.
-    It gets user input and checks if the number is even or odd.
+    Main function to execute the even/odd checker program.
     """
-    number = get_integer_input()  # Get an integer from the user
-    result = check_even_odd(number)  # Check if the number is even or odd
-    print(result)  # Print the result
+    user_number = get_integer_input()
+    result = check_even_odd(user_number)
+    print(result)
 
 if __name__ == "__main__":
     main()
